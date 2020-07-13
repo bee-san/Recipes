@@ -1,37 +1,90 @@
-## Welcome to GitHub Pages
+<a href="https://flotiq.com/">
+    <img src="https://editor.flotiq.com/fonts/fq-logo.svg" alt="Flotiq logo" title="Flotiq" align="right" height="60" />
+</a>
 
-You can use the [editor on GitHub](https://github.com/brandonskerritt/Recipes/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Gatsby Starter - Recipes
+========================
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This is a [Gatsby](https://gatsbyjs.org) starter project for a recipes website. It's configured to pull recipe data from [Flotiq](https://flotiq.com) and can be easily deployed to your cloud hosting - Heroku, Netlify, Gatsby Cloud, etc.
 
-### Markdown
+Live Demo: https://flotiq-starter-recipes.herokuapp.com
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Screenshot
 
-```markdown
-Syntax highlighted code block
+<img src="https://github.com/flotiq/gatsby-starter-recipes/raw/master/docs/flotiq-starter-recipes.png" width=480 />
 
-# Header 1
-## Header 2
-### Header 3
+## Quick start
 
-- Bulleted
-- List
+1. **Start project from template using Gatsby CLI**
+    
+    ```bash
+    gatsby new gatsby-starter-recipes https://github.com/flotiq/gatsby-starter-recipes.git
+    ```
+1. **Setup "Recipe" Content Type in Flotiq**
 
-1. Numbered
-2. List
+   Create your [Flotiq.com](https://flotiq.com) account. Next, create the `Recipe` Content Type:
 
-**Bold** and _Italic_ and `Code` text
+   ![Recipe content type in flotiq](docs/create-definition-recipe.png)
+    
+   _Note: You can also create `Recipe` using [Flotiq REST API](https://flotiq.com/docs/API/)._ 
 
-[Link](url) and ![Image](src)
-```
+1. **Configure application**
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+    The next step is to configure our application to know from where it has to fetch the data.
+       
+    You need to create a file called `.env` inside the root of the directory, with the following structure:
 
-### Jekyll Themes
+    ```
+    GATSBY_FLOTIQ_BASE_URL=https://api.flotiq.com
+    GATSBY_FLOTIQ_API_KEY=YOUR FLOTIQ API KEY
+    ```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/brandonskerritt/Recipes/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+1.  **Start developing**
 
-### Support or Contact
+    Navigate into your new site’s directory and start it up.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    ```sh
+    cd gatsby-starter-recipes
+    npm install
+    gatsby develop
+    ```
+    
+    If you wish to import example recipes to your account, before running `gatsby develop` run:
+    
+    ```sh
+    node ./.flotiq/importExample.js
+    ```
+    
+    It will add 4 images and 2 recipes to your Flotiq account.
+    
+    _Note: You need to put your Read and write API key in `.env` for import to work. You don't need Recipe content type in your account. If you already have recipes with ids `recipe-1` and `recipe-2` they will be overwritten._
+   
+1.  **Open the source code and start editing!**
+    
+    Your site is now running at [http://localhost:8000](http://localhost:8000)!
+    
+    _Note: You'll also see a second link: _[http://localhost:8000/___graphql](http://localhost:8000/___graphql)`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+    
+    Open a project directory in your code editor of choice and edit `src/templates/index.js`. Save your changes and the browser will update in real time!
+
+1. **Manage your recipes using Flotiq editor**
+      
+    You can now easily manage your recipes using [Flotiq editor](https://editor.flotiq.com)
+    
+    ![Managing recipes using Flotiq](docs/manage-recipes.png)
+
+## Deploy
+
+  You can deploy this project to Heroku in 3 minutes:
+
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/flotiq/gatsby-starter-recipes)
+  
+  Or to Netlify:
+  
+  [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/flotiq/gatsby-starter-recipes)
+  
+## Collaborating
+
+   If you wish to to talk with us about this project, feel free to hop on our [discord server](https://discord.gg/FwXcHnX).
+   
+   If you found a bug, please report it in [issues](https://github.com/flotiq/gatsby-starter-recipes/issues).
